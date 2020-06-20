@@ -1,0 +1,46 @@
+- Task0: The algorithm has a runtime of of O(1) because regardless of the length of the given files, 
+  it always takes the first record of the given texts file and the last record of 
+  the given calls file.
+
+- Task1: The algorithm has a runtime of O(2C+2T) where C = length of calls file and T = length of texts file.
+  This is because it goes through the entire calls file once and then goes through
+  the entire texts file once to add all the numbers to one list, taking C+T time.
+  Then it goes through the computed list which has C+T elements so the runtime is C+T again.
+  Adding the runtimes together we get O(2C+2T).
+
+- Task2: The algorithm has a runtime of O(2C+2N) where C = length of calls file and N = length of 
+  call_durations dictionary. This is because it goes though the entire calls file once
+  to compute the call duration for each unique number, taking up C time. Then it uses the max function once to get
+  the number with the longest call time, taking up N time. Then it repeats the same process to get the
+  longest call time. Adding the runtimes together we get O(2C+2N).
+
+- Task3 Part A: The algorithm has a runtime of O(C+R+2N+NlogN+A) where C = length of calls file,
+  R = length of list of numbers called by Bangalore, N = length of all area codes called by Bangalore,
+  and A = length of unique area codes called by Bangalore. This is because it initially goes through
+  the calls file to create a list of all numbers called by a Bangalore number, taking up time C.
+  Then it goes through the list of numbers called by Bangalore to extract the area code for each number,
+  taking up time R. Then the algorithm uses the set function to get the unique area codes, taking up time N,
+  and converts the set back into a list, taking up time N again for a total of 2N. Then it sorts the list
+  of unique area codes, taking up time NlogN. Finally, it goes through the unique area codes to print out each
+  one, taking up time A.
+
+- Task3 Part B: The algorithm has a runtime of O(C+R+N) where C = length of calls file,
+  R = length of list of numbers called by Bangalore, and N = length of all area codes called by Bangalore.
+  This is because it initially goes through the calls file to create a list of all numbers called by a 
+  Bangalore number, taking up time C. Then it goes through the list of numbers called by Bangalore to extract 
+  the area code for each number, taking up time R. Then the algorithm uses the count function to calculate
+  the number of occurrences for each number in the list of numbers called by Bangalore, taking up time N.
+
+- Task4: The algorithm has a runtime of O(3C+3T+U1(U2+U3+U4)+2L) where C = length of calls file,
+  T = length of texts file, U1 = length of unique outgoing call numbers, U2 = length of unique 
+  incoming call numbers U3 = length of unique outgoing text numbers, U4 = length of unique incoming text
+  numbers, and L = the length of likely telemarketer numbers. This is because it initially goes through 
+  the list the calls file to create a list of all outgoing call numbers and a list of all incoming call numbers,
+  taking time C. Then it goes through the same process with the texts file, taking time T. Then it
+  finds the distinct numbers for each list by converting the list to a set and then converting that
+  back to a list, taking up 2C+2T time to do so. Then it iterates through the list of unique outgoing call
+  numbers, and for each number it checks the list of unique incoming call numbers, the list of unique outgoing
+  text numbers, and the list of unique incoming text numbers to see if the outgoing call number is in any of
+  those 3 lists. If not, then the algorithm adds the number to a list of likely telemarketer numbers.
+  Then it sorts that list, taking L time. Finally, the algorithm goes through each item in that list and prints
+  each out, taking up L time again.
